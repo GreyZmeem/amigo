@@ -258,7 +258,7 @@ func readMessage(r *bufio.Reader) (m map[string]string, err error) {
 			continue
 		}
 
-		if responseFollows && key != "Privilege" {
+		if responseFollows && key != "Privilege" && key != "ActionID" {
 			if string(kv) != "--END COMMAND--" {
 				m["CommandResponse"] = fmt.Sprintf("%s\n%s", m["CommandResponse"], string(kv))
 			}
